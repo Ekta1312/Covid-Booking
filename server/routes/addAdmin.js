@@ -1,7 +1,7 @@
-const express=require("express")
-var admincontroller=require("../controller/admincontroller")
+const express = require("express")
+const admincontroller=require("../controller/admincontroller")
 
-var router =express.Router()
+const router =express.Router()
 
 router.post("/verify",admincontroller.verify)
 router.get("/",admincontroller.read)
@@ -9,5 +9,4 @@ router.post("/",admincontroller.create)
 
 router.delete("/:id",admincontroller.delete)
 
-//router.post("/addcenters",admincontroller.centercreate)
-module.exports=router
+module.exports=router;

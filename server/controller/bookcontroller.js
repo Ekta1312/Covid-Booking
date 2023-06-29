@@ -14,7 +14,10 @@ exports.create=(req,res)=>{
        for(let k=0;k<response.data.length;k++)
        {    
           console.log(response.data[k].name,req.body.centrename);
-          if(response.data[k].name==req.body.centrename && response.data[k].place==req.body.place)
+          if (
+            response.data[k].name.toLowerCase() === req.body.centrename.toLowerCase() &&
+            response.data[k].place.toLowerCase() === req.body.place.toLowerCase()
+          ) 
           {  //above
             var count=0
             axios.get("http://localhost:3000/books/")
@@ -29,10 +32,10 @@ exports.create=(req,res)=>{
                 }
                  
               }
-              if(count>3)
+              if(count>10)
               {
                 console.log("this day is already full");
-              res.redirect("/bookslot")
+                res.redirect("/bookslot")
               }
               else{
         
